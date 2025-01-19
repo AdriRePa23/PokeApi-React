@@ -1,5 +1,23 @@
 .pokemon-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-pokemon {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-pokemon h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
 }
