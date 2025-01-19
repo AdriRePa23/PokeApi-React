@@ -17,7 +17,6 @@ function FormularioComponente(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Buscar Pokémon</h2>
       <fieldset className='form-fieldset'>
         <legend className='legend-fieldset'>Buscar Pokémon por rango</legend>
         <label htmlFor="desde" className='label-form'>Desde:</label>

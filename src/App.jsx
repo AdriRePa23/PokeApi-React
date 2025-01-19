@@ -7,6 +7,7 @@ import PokemonDetailsComponent from './components/PokemonDetailsComponent'
 function App() {
   return (
     <>
+      <h1 className='title'>Pokédex</h1>
       <PokemonListComponent />
     </>
   )
