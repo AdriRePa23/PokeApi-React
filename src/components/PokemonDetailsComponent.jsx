@@ -2,7 +2,7 @@ import React from 'react';
 import './PokemonDetailsComponent.css';
 
 function PokemonDetailsComponent(props) {
-  const { pokemon } = props;
+  const { pokemon, clearSelectedPokemon } = props;
   return (
     <section className="selected-pokemon">
       <div className="pokemon-container">
@@ -13,6 +13,7 @@ function PokemonDetailsComponent(props) {
             {stat.stat.name}: {stat.base_stat}
           </h3>
         ))}
+        <button className="btn-clear" onClick={clearSelectedPokemon}>Quitar de la vista</button>
       </div>
     </section>
   );

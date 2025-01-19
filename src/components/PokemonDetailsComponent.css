@@ -34,3 +34,18 @@
   color: #555;
   text-transform: capitalize;
 }
+
+.btn-clear {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-clear:hover {
+  background-color: #ff4500;
+}
