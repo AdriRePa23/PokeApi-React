@@ -1,0 +1,28 @@
+.selected-pokemon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+  text-align: center;
+    margin-top: 20px;
+
+
+  .pokemon-container {
+    width: 300px;
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    border: 3px solid black;
+    
+
+    .pokemon-img {
+        width: 100%;
+        
+    }
+    .pokemon-stats{
+        margin: 0;
+    }
+  }
+
+    
+}

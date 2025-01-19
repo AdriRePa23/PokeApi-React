@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PokemonCardComponent from './PokemonCardComponent'
 import './PokemonListComponent.css'
 
-function PokemonListComponent() {
+function PokemonListComponent(props) {
+  
 
   const [pokemonList, setPokemonList] = useState([]);
 
@@ -27,7 +28,10 @@ function PokemonListComponent() {
   }
 
   const pokemonCards = pokemonList.map((pokemon) => {
-    return <PokemonCardComponent key={pokemon.id} pokemon={pokemon} />;
+    return <PokemonCardComponent 
+    key={pokemon.id} 
+    pokemon={pokemon} 
+    selectPokemon={props.selectedPokemon}/>;
   });
 
 
