@@ -20,6 +20,7 @@
   margin: 10px 0;
   font-size: 1.5em;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .pokemon-img {
@@ -31,4 +32,5 @@
   margin: 5px 0;
   font-size: 1.2em;
   color: #555;
+  text-transform: capitalize;
 }
