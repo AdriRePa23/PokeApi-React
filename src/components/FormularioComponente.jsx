@@ -26,7 +26,6 @@ function FormularioComponente(props) {
           name="desde"
           value={desde}
           min="1"
-          max={props.totalPokemon}
           onChange={(e) => setDesde(e.target.value)}
           className='input-form'
         />

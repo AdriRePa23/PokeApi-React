@@ -7,36 +7,22 @@ import PokemonDetailsComponent from './PokemonDetailsComponent';
 function PokemonListComponent(props) {
   const [selectedPokemon, setSelectedPokemon] = useState();
   const [pokemonList, setPokemonList] = useState([]);
-  const [totalPokemon, setTotalPokemon] = useState(0);
 
   useEffect(() => {
     getPokemonList(1, 10);
-    fetchTotalPokemon();
+    
   }, []);
 
-  const fetchTotalPokemon = async () => {
-    try {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      setTotalPokemon(data.count);
-    } catch (error) {
-      console.error('Error fetching total Pokémon count:', error);
-    }
-  };
-
-  const fetchPokemons = async (index) => {
+  const fetchPokemon = async (index) => {
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Error en la red');
       }
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(`Error fetching Pokémon with index ${index}:`, error);
+      console.error(`Error encontrando pokémon con el id ${index}:`, error);
       return null;
     }
   };
@@ -45,12 +31,12 @@ function PokemonListComponent(props) {
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Ha ocurrido un error en la red');
       }
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(`Error fetching Pokémon by name ${name}:`, error);
+      console.error(`Error encontrando un pokémon con el nombre ${name}:`, error);
       return null;
     }
   };
@@ -58,9 +44,11 @@ function PokemonListComponent(props) {
   const getPokemonList = async (desde, hasta) => {
     const pokemonArray = [];
     for (let i = desde; i <= hasta; i++) {
-      const pokemon = await fetchPokemons(i);
+      const pokemon = await fetchPokemon(i);
       if (pokemon) {
         pokemonArray.push(pokemon);
+      } else {
+        break;
       }
     }
     setPokemonList(pokemonArray);
@@ -75,7 +63,7 @@ function PokemonListComponent(props) {
         setPokemonList([]);
       }
     } catch (error) {
-      console.error('Error fetching Pokémon by name:', error);
+      console.error('Error encontrando un pokémon con ese nombre:', error);
       setPokemonList([]);
     }
   };
@@ -94,7 +82,7 @@ function PokemonListComponent(props) {
 
   return (
     <div>
-      <FormularioComponente getPokemon={getPokemonList} getPokemonByName={getPokemonByName} totalPokemon={totalPokemon} />
+      <FormularioComponente getPokemon={getPokemonList} getPokemonByName={getPokemonByName} />
       {selectedPokemon && (
         <div className='selected-pokemon'>
           <h2>Pokémon seleccionado: {selectedPokemon.name}</h2>
